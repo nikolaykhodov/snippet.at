@@ -1,0 +1,66 @@
+{% extends 'main_noright.html' %}
+
+{% load comments %}
+{% load markup %}
+
+{% block page_title %}{{ user_profile.username }}'s profile{% endblock %}
+
+{% block css_files %}
+    <link href="{{ STATIC_URL }}css/main.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block navi %}
+    <li class="tab {% if tab == 'profile' %}action{% endif %}">
+        <a href="{% url my_profile  %}" class="navi_link">Snippets</a>
+    </li>
+    <li class="tab {% if tab == 'favourites' %}action{% endif %}">
+        <a href="{% url my_profile_favourites  %}" class="navi_link">Favourites</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <ul id="snippets">
+        {% for snippet in snippets %}
+            <li class="snippet">
+                <div class="rating_wrapper">
+                    <span class="rating">{{ snippet.score }}</span>
+                    {% get_comment_count for snippet as snippet_comments %}
+                    <span class="comments">{{ snippet_comments }}</span>
+                </div>
+
+                <h1><a href="{{ snippet.get_absolute_url }}">{{ snippet.title }}</a></h1>
+
+                <div class="snippet_tags">
+                    {% for tag in snippet.tags.all %}
+                        <a href="{% url snippets_tag tag.tag %}" class="tag">{{ tag.tag }}</a>
+                    {% endfor %}
+                </div>
+
+                <p class="description">{{ snippet.description }}</p>
+                <p class="author"><span title="{{ snippet.created }}">{{ snippet.age }}</span> by <a href="{% url user_profile snippet.author.username %}" class="user">{{ snippet.author.username }}</a></p>
+            </li>
+        {% endfor %}
+    </ul>
+    {% if is_paginated %}
+        <ul id="pages">
+            {% for page in pages %}
+            <li>
+                <a href="?page={{ page }}" class="navi_link">{{ page }}</a><span> | </span>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}
+
+{% block right %}
+    <h3>{{ user_profile.username }}</h3>
+    <div>Real name: {% if user_profile.first_name != ''%}{{ user_profile.first_name }} {{user_profile.last_name}}{%else%}(unknown){%endif%}</div>
+    <div>Date joined: {{ user_profile.date_joined|date:"m.d.Y" }}</div>
+
+    <h3>Top {{ user_profile.username }}'s tags</h4>
+    <ul id="tags">
+        {% for tag in user_stat %}
+            <li><a href="{% url snippets_tag tag %}" class="tag">{{ tag }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

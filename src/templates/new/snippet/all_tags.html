@@ -1,0 +1,38 @@
+{% extends 'main.html' %}
+
+{% block page_title %}All Tags{%endblock%}
+
+{% block css_files %}
+    <link href="{{ STATIC_URL}}css/all_tags.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block navi %}
+    <li class="tab">
+        <a href="{% url snippets_fresh %}" class="navi_link">Fresh</a>
+    </li>
+    <li class="tab">
+        <a href="{% url snippets_top %}" class="navi_link">Feature</a>
+    </li>
+    <li class="tab action">
+        <a href="javascript:;" class="navi_link">All Tags</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <table id="all_tags" cellspacing="0">
+        <tr>
+            <th id="th_name">Name</th><th>Followers</th><th>Snippets</th>
+        </tr>
+        {% for tag in tags %}
+        <tr>
+            <td><a href="{% url snippets_tag tag.tag %}" class="tag">{{ tag.tag }}</a></td><td>{% if tag.followers %}{{ tag.followers }}{% else %}0{% endif %}</td><td>{{ tag.snippets }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% if is_paginated %}
+        {% for page in pages %}
+        <a href="?page={{ page }}" class="navi_link">{{ page }}</a><span> | </span>
+        {% endfor %}
+    {% endif %}
+{% endblock %}

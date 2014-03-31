@@ -1,0 +1,16 @@
+#content h2 {
+margin: 10px 15px;
+}
+#all_tags {
+margin: 0 10px;
+padding-left: 5px;
+width: 400px;
+}
+#th_name {
+width: 200px;
+
+}
+th {
+text-align: left;
+}
+

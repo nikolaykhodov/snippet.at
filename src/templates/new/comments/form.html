@@ -1,0 +1,14 @@
+{% if user.is_authenticated %}
+<form id="comment_form" action="{% url comments-post-comment %}" method="post">
+    {%csrf_token%}
+    <label for="id_comment">Leave your comment...</label>
+    <textarea name="comment" id="id_comment" rows="5"></textarea>
+    {% for hidden in form.hidden_fields %}
+    {{ hidden }}
+    {% endfor %}
+    <input type="hidden" name="next" value="{{ request.path }}#comments" />
+    <div class="button button_blue" style="margin-left: 20px;"><button onclick="document.forms.comment_form.submit();">Comment!</div>
+</form>
+{% else %}
+<p id="need_login">To leave comment you have to <a href="{% url auth_login %}?next={{ request.path }}%23comment-form">login</a>.<p>
+{% endif %}

@@ -1,0 +1,21 @@
+
+{% block page_title %}Registration{% endblock %}
+
+{% block css_files %}
+<link href="{{ STATIC_URL}}css/login.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+<form id="signup" method="post" action="">
+    <h3><span>Create an account</span></h3>
+    {% csrf_token %}
+    {% for field in form %}
+        {{ field.label_tag }} {{ field }}
+        {% if field.help_text %} {{ field.help_text }} {% endif %}
+        {% if field.errors %} {{ field.errors }} {% endif %}
+    {% endfor %}
+    <button type="submit" id="login_submit" class="button">
+        <span>Register!</span>
+    </button>
+</form>
+{% endblock %}

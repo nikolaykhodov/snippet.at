@@ -1,0 +1,6 @@
+mockups/
+*.sqlite
+*.pyc
+*.swp
+*.swo
+*.orig

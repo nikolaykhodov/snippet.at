@@ -1,0 +1,28 @@
+{% extends "main_noright.html" %}
+
+{% block page_title %}Login{% endblock %}
+
+{% block css_files %}
+<link href="{{ STATIC_URL}}css/login.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block navi %}
+    <li class="tab action"><a href="javascript:;">Login</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="login_wrapper">
+    <form id="login" method="post" action="?next={% firstof request.GET.next '/' %}">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }} <br class="clearfix" />
+            {% if field.help_text %} {{ field.help_text }} {% endif %}
+            {% if field.errors %} {{ field.errors }} {% endif %}
+            <div class="clearfix" style="margin-top: 10px;"></div>
+        {% endfor %}
+        <div style="text-align: center;">
+            <div class="button button_blue"><button onclick="document.forms.login.submit();">Login!</button></div>
+        </div>
+    </form>
+</div>
+{% endblock %}

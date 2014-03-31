@@ -1,0 +1,209 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+html, body {
+    width: 100%;
+    height: 100%;
+}
+* html #container {
+    height: 100%;
+}
+body {
+    font: 12px/1.5 "Helvetica Neue",Helvetica,Arial,sans-serif;
+    background-color: #282828;
+}
+
+/*   header   */
+#header {
+    height: 50px;
+    background-color: #EAEAEA
+}
+#header_container {
+    width: 980px;
+    margin: 0 auto;
+}
+#logo {
+    width: 200px;
+    height: 50px;
+    float: left;
+}
+#header_actions {
+    padding-top: 10px;
+    padding-right: 5px;
+    float: right;
+}
+#header_signup, #header_login, #header_add , #header_search {
+    float: right;
+    margin-left: 10px;
+}
+#query {
+    width: 150px;
+    text-indent: 20px;
+    padding: 6px 9px;
+    display: inline-block;
+    background-image: url(../img/search1.png);
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 3px 3px 3px 3px;
+    -moz-transition: all 0.2s ease-in-out 0s;
+}
+#query:focus, #query:active {
+    width: 250px;
+    text-indent: 20px;
+    padding:6px 9px;
+    display: inline-block;
+    background-image: url(../img/search2.png);
+    background-repeat: no-repeat;
+    background-position: 4px center;
+    border: 1px solid rgba(0, 0, 0, 0.35);
+    border-radius: 3px 3px 3px 3px;
+    -moz-transition: all 0.2s ease-in-out 0s;
+}
+.header_button span {
+    display:inline-block;
+    padding:5px 9px;
+    width: 50px;
+    text-align: center;
+}
+.header_button {
+    border-radius:3px;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    display:inline-block;
+    font-weight:bold;
+    color: rgb(100, 65, 165);
+    text-decoration: none;
+}
+.header_button {
+    background:-webkit-gradient(linear,left top,left bottom,from(#f5f5f5),to(#ddd));
+    background:-moz-linear-gradient(top,#f5f5f5,#ddd);
+    background:-o-linear-gradient(top,#f5f5f5,#ddd);
+    background:linear-gradient(top,#f5f5f5,#ddd);
+    background-color:none;
+    border-top:1px solid rgba(0,0,0,0.2);
+    border-left:1px solid rgba(0,0,0,0.3);
+    border-right:1px solid rgba(0,0,0,0.3);
+    border-bottom:1px solid rgba(0,0,0,0.35);
+}
+.header_button:active {
+    background:-webkit-gradient(linear,left top,left bottom,from(#ddd),to(#bbb));
+    background:-moz-linear-gradient(top,#ddd,#bbb);
+    background:-o-linear-gradient(top,#ddd,#bbb);
+    background:linear-gradient(top,#ddd,#bbb);
+    background-color:none;
+    border-top:1px solid rgba(0,0,0,0.35);
+    border-left:1px solid rgba(0,0,0,0.3);
+    border-right:1px solid rgba(0,0,0,0.3);
+    border-bottom:1px solid rgba(0,0,0,0.3);
+}
+
+/*   container   */
+#container {
+    width: 980px;
+    margin: -50px auto 0;
+    min-height: 100%;
+    background-color: #EAEAEA;
+}
+#hHeader {
+    height: 50px;
+}
+#space {
+    height: 40px;
+    background-color: #282828;
+}
+#hFooter {
+    clear: both;
+    height: 50px;
+}
+
+/*   right   */
+#right {
+    float: right;
+    width: 260px;
+    padding: 5px 5px;
+}
+h3 {
+    margin-top: 20px;
+}
+#activity {
+
+}
+.activity {
+    display: inline-block;
+}
+.snippet_link {
+    text-decoration: none;
+}
+#tags {
+
+}
+.tag {
+    float: left;
+    clear: both;
+    margin: 3px 0px;
+    padding: 2px 10px;
+    text-align: center;
+    border-radius: 5px;
+    border: 1px solid rgb(204, 204, 204);
+    background: none no-repeat scroll 10px center rgb(255, 255, 255);
+    display: inline-block;
+    text-decoration: none;
+}
+.tag_link {
+    color: rgb(100, 65, 165);
+    text-decoration: none;
+}
+
+/*   content   */
+#content {
+    margin-right: 300px;
+}
+#content h2.title {
+    margin: 10px 15px;
+}
+#navi {
+    padding: 5px 10px;
+    height: 30px;
+}
+.tabs {
+    border-bottom: 1px solid rgb(204, 204, 204);
+    box-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.65);
+}
+.tabs li {
+    display: inline-block;
+
+}
+.tabs a {
+    display: block;
+    font-weight: bold;
+    min-width: 36px;
+    padding: 5px 10px;
+    text-align: center;
+    border-radius: 1px 1px 0pt 0pt;
+    color: rgb(100, 65, 165);
+    font-size: 120%;
+    text-decoration: none;
+}
+.tabs  a:hover{
+    text-decoration: underline;
+}
+
+/*   footer   */
+#footer {
+    margin: -50px auto 0;
+    height: 50px;
+    width: 980px;
+    color: #EAEAEA;
+    background-color: #282828;
+    text-align: center;
+}
+#footer_navi {
+    padding-top: 5px;
+}
+#footer_navi a {
+    color: #EAEAEA;
+    text-decoration: none;
+}

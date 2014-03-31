@@ -1,0 +1,22 @@
+{% extends 'main_noright.html' %}
+
+{% block page_title%}Edit Snippet{%endblock%}
+
+{% block css_files %}
+    <link href="/static/css/add_snippet.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <h2 class="title">Edit Snippet</h2>
+    <form id="add_snippet" method="post" action=".">
+        {% csrf_token %}
+        {% for field in form %}
+            {{ field.label_tag }} {{ field }}
+            {% if field.help_text %} {{ field.help_text }} {% endif %}
+            {% if field.errors %} {{ field.errors }} {% endif %}
+        {% endfor %}
+        <p>
+            <input type="submit" class="button" value="Save">
+        </p>
+    </form>
+{% endblock %}

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <link href="/static/new/css/empty.css" rel="stylesheet" type="text/css" />
+        <link href="/static/new/css/main.css" rel="stylesheet" type="text/css" />
+        <!--[if IE 8]><link href="/static/new/css/style_ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+		<title>Главная</title>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+                <a id="logo" href="#"><img src="/static/new/img/logo.png" alt="логотип"></a>
+				<ul id="user_actions">
+					<li class="right left_outer" id="header_signup"><a href="#">Signup</a></li>
+					<li class="right left_outer right_outer" id="header_login"><a href="#">Login</a></li>
+					<li class="right right_outer" id="header_logout"><a href="#"><span>Logout</span></a></li>
+					<li id="header_username">Username</li>
+				</ul>
+				<div id="header_actions">
+					<a href="#" class="right" id="header_add"><span>Add a Snippet</span></a>
+
+					<form id="header_search" class="header_action" method="get" action="">
+                        <div id="query_wrapper">
+                            <input id="query" name="query">
+                        </div>
+
+                        <div id="search_wrapper">
+                            <button id="search" type="submit"> <span></span> </button>
+                        </div>
+					</form>
+				</div>
+				<div id="navi">
+					<ul id="tabs">
+						<li class="tab">
+							<a href="#">Fresh</a>
+						</li>
+						<li class="tab action">
+							<a href="#">Rising</a>
+						</li>
+						<li class="tab">
+							<a href="#">Top</a>
+						</li>
+						<li class="tab">
+							<a href="#">Feature</a>
+						</li>
+						<li class="tab">
+							<a href="#">100*</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div id="right">
+				<h3>Recent Activity</h3>
+				<ul id="activity">
+					<li>
+						<a href="#" class="user">Petr</a> created <a href="#" class="snippet_link">aaaaaaaaaaaaaaa</a>
+					</li>
+					<li>
+						<a href="#" class="user">Ruslan</a> commented <a href="#" class="snippet_link">Python greenlets</a>
+					</li>
+					<li>
+						<a href="#" class="user">Aleksand Aleksandovich</a> created <a href="#" class="snippet_link">CS1.6 anty-cheat script</a>
+					</li>
+					<li>
+						<a href="#" class="user">Oleg</a> created <a href="#" class="snippet_link">Python greenlets</a>
+					</li>
+					<li>
+						<a href="#" class="user">Petr</a> commented <a href="#" class="snippet_link">How to rename file programmatically</a>
+					</li>
+					<li>
+						<a href="#" class="user">Nikolay</a> created <a href="#" class="snippet_link">How to rename file programmatically</a>
+					</li>
+					<li>
+						<a href="#" class="user">Aleksand Aleksandovich</a> commented <a href="#" class="snippet_link">bbbbbbbbbbbbbbbbbbbbb</a>
+					</li>
+				</ul>
+				<h3><a href="#">Tags</a></h3>
+				<ul id="tags">
+					<li>
+						<a href="#" class="tag">a</a><span class="all">100</span><span class="new">+43</span>
+					</li>
+					<li>
+						<a href="#" class="tag">Aa</a><span class="all">43</span><span class="new">+5</span>
+					</li>
+					<li>
+						<a href="#" class="tag">Aaa</a><span class="all">12</span><span class="new">+10</span>
+					</li>
+					<li>
+						<a href="#" class="tag">Aaaa</a><span class="all">59</span><span class="new"></span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaa</a><span class="all">18</span><span class="new">+1</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaa</a><span class="all">100</span><span class="new">+43</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaa</a><span class="all">43</span><span class="new">+5</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaa</a><span class="all">12</span><span class="new">+10</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaa</a><span class="all">59</span><span class="new"></span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaaa</a><span class="all">18</span><span class="new">+1</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaaaa</a><span class="all">100</span><span class="new">+43</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaaaaa</a><span class="all">43</span><span class="new">+5</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaaaaaa</a><span class="all">12</span><span class="new">+10</span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaaaaaaa</a><span class="all">59</span><span class="new"></span>
+					</li>
+					<li>
+						<a href="#" class="tag">aaaaaaaaaaaaaaa</a><span class="all">18</span><span class="new">+1</span>
+					</li>
+				</ul>
+			</div>
+			<div id="content">
+                <ul id="snippets">
+					<li class="snippet">
+						<div class="rating_wrapper">
+							<span class="rating">+100</span>
+							<span class="comments">3</span>
+						</div>
+
+						<h1><a href="snippet.html">How to rename file programmatically</a></h1>
+
+						<div class="snippet_tags">
+                            <a href="#" class="tag">C#</a>
+                            <a href="#" class="tag">windows</a>
+                            <a href="#" class="tag">fs</a>
+                            <a href="#" class="tag">rename</a>
+						</div>
+
+						<p class="description">This snippet is intented to how to rename file in Windows using C#</p>
+						<p class="author"><span>right now</span> by <a href="index.html" class="user">USER1</a></p>
+					</li>
+					<li class="snippet">
+						<div class="rating_wrapper">
+							<span class="rating">+10</span>
+							<span class="comments">2</span>
+						</div>
+                        <h1><a href="snippet.html">Python greenlets</a></h1>
+
+						<div class="snippet_tags">
+                            <a href="#" class="tag">python</a>
+                            <a href="#" class="tag">greenlets</a>
+                            <a href="#" class="tag">async</a>
+						</div>
+                        
+						<p class="description">Below I wrote a small snippet about greenlet basics</p>
+						<p class="author"><span>two days ago</span> by <a href="index.html" class="user">USER2</a></p>
+					</li>
+					<li class="snippet">
+						<div class="rating_wrapper">
+							<span class="rating">+1000</span>
+							<span class="comments">50</span>
+						</div>
+
+						<h1><a href="snippet.html">CS1.6 anty-cheat script</a></h1>
+
+						<div class="snippet_tags">
+                            <a href="#" class="tag">CS 1.6</a>
+						</div>
+
+						<p class="description">It's about enabling anty-cheat system on your CS server</p>
+						<p class="author"><span>week ago</span> by <a href="index.html" class="user">USER3</a></p>
+					</li>
+					<li class="snippet">
+						<div class="rating_wrapper">
+							<span class="rating">+1000</span>
+							<span class="comments">50</span>
+						</div>
+						<h1><a href="snippet.html">CS1.6 anty-cheat script</a></h1>
+						<div class="snippet_tags">
+                            <a href="#" class="tag">CS 1.6</a>
+						</div>
+						<p class="description">It's about enabling anty-cheat system on your CS server</p>
+						<p class="author"><span>week ago</span> by <a href="index.html" class="user">USER3</a></p>
+					</li>
+				</ul>
+				<ul id="pages">
+					<li>
+						<a href="#" class="navi_link">First</a><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">Previous</a><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">1</a><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">2</a><span> | </span>
+					</li>
+					<li>
+						<span class="page">3</span><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">4</a><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">5</a><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">Next</a><span> | </span>
+					</li>
+					<li>
+						<a href="#" class="navi_link">Last</a>
+					</li>
+				</ul>
+			</div>
+			<div id="hFooter"></div>
+		</div>
+		<div id="footer">
+			<span>© 2012 Snippet.at</span>
+		</div>
+
+        <div id="modal_background"></div>
+        
+        <div id="modal_template" class="modal">
+            <div class="modal_wrapper">
+                <div class="title">Message Title</div>
+                <div class="content">
+                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+                    It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English.
+                    Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+                </div>
+                <div class="buttons">
+                    <div class="button button_gray"><button>Cancel</button></div>
+                    <div class="button button_blue"><button>OK</button></div>
+                </div>
+            </div>
+        </div>
+	</body>
+</html>

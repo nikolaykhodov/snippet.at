@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="<b>Snippet.At</b> helps you to easily find reusable code snippets on most routines you demand and organize your snippets." />
+        <meta name="keywords" content="c++, python, javascript, snippet, code snippet, java, c sharp, csharp, c#, c, snippets, social." />
+        <link rel="shortcut icon" href="{{ STATIC_URL}}img/favicon.ico">
+        <title>{% block page_title %}{% endblock %} - Snippet.At</title>
+
+        <link href="{{ STATIC_URL }}css/empty.css" rel="stylesheet" type="text/css" />
+        <!--[if IE 8]><link href="/static/new/css/style_ie8.css" rel="stylesheet" type="text/css" /><![endif]-->
+        {% block css_files %}{% endblock %}
+
+        <!--<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>-->
+        <script type="text/javascript" src="{{ STATIC_URL }}js/jquery.min.js"></script>
+        {% block js_files %}{% endblock %}
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-33658216-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+
+        var STATIC_URL = "{{ STATIC_URL }}";
+        </script>
+	</head>
+	<body>
+		<div id="container">
+			<div id="header">
+                <a id="logo" href="/"><img src="{{ STATIC_URL }}img/logo.png" alt="logo"></a>
+				<ul id="user_actions">
+                    {% if user.is_authenticated %}
+                    <li class="right left_outer" id="header_logout"><a href="{% url auth_logout %}"><span>Logout</span></a></li>
+                    <li id="header_username"><a href="{% url my_profile %}">{{ user.username }}</a></li>
+                    {% else %}
+                    <li class="right left_outer" id="header_signup"><a href="{% url registration_register %}">Signup</a></li>
+                    <li class="right left_outer right_outer" id="header_login"><a href="{% url auth_login %}?next={{ request.path }}">Login</a></li>
+                    {% endif %}
+				</ul>
+                
+				<div id="header_actions">
+                    <a href="{% url snippet_add %}" class="right" id="header_add"><span>Add a Snippet</span></a>
+
+					<form id="header_search" class="header_action" method="get" action="{% url snippets_search %}">
+                        <div id="query_wrapper">
+                            <input id="query" name="query" value="{{ search_query }}">
+                        </div>
+
+                        <div id="search_wrapper">
+                            <button id="search" type="submit"> <span></span> </button>
+                        </div>
+					</form>
+				</div>
+
+				<div id="navi">
+					<ul id="tabs">
+                        {% block navi %}{%endblock %}
+					</ul>
+				</div>
+			</div>
+
+            <div id="content">
+                {% block content %}{% endblock %}
+            </div>
+
+			<div id="right">
+				<h3>Recent Activity</h3>
+				<ul id="activity">
+                    {% for act in recent_activity %}
+                        <li>
+                            <a href="{% url user_profile act.user.username %}"  class="user">{{ act.user.username }}</a> {{ act.verb }} <a href="{{ act.follow_object.get_absolute_url }}" class="snippet_link">{{ act.follow_object}}</a>
+                        </li>
+                    {% endfor %}
+				</ul>
+
+				<h3>Tags</h3>
+				<ul id="tags">
+                    {% for tag in tag_stat %}
+					<li>
+                    <a href="{% url snippets_tag tag %}" class="tag">{{ tag }}</a><!--<span class="all">100</span><span class="new">+43</span>-->
+					</li>
+                    {% endfor %}
+				</ul>
+			</div>
+
+            <br class="clearfix"/>
+        </div>
+
+        <div id="footer">
+            <span>© 2012 Snippet.at</span>
+        </div>
+
+        <div style="display: none; position: absolute; top: -1000px;">
+            <form id="parameters">
+                {% csrf_token %}
+            </form>
+        </div>
+	</body>
+</html>

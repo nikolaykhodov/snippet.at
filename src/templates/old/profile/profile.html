@@ -1,0 +1,80 @@
+{% extends 'main_noright.html' %}
+
+{% load comments %}
+{% load markup %}
+
+{% block page_title %}{{ user_profile.username }}'s profile{% endblock %}
+
+{% block js_files %}
+    <script type="text/javascript" src="/static/js/vote.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div id="navi">
+        <ul class="tabs">
+            <li class="tab">
+                <a href="{% url user_profile user_profile.username %}" class="navi_link">Snippets</a>
+            </li>
+            <li class="tab">
+                <a href="{% url user_profile_favourites user_profile.username %}" class="navi_link">Favourites</a>
+            </li>
+         </ul>
+    </div>
+
+    <ul id="snippets">
+        {% for snippet in snippets %}
+            <li class="snippet">
+                <div id="rating">
+                    <p><span class="vote vote_down" snippet_id="{{ snippet.id }}">-</span> <span id="score{{ snippet.id }}" style="font-weight: bold;">{{ snippet.score }}</span> <span class="vote vote_up" snippet_id="{{ snippet.id }}">+</span></p>
+                    {% get_comment_count for snippet as snippet_comments %}
+                    <p>{{ snippet_comments }}</p>
+                </div>
+                <h2><a href="{{ snippet.get_absolute_url }}">{{ snippet.title }}</a></h2>
+                <ul class="snippet_tags">
+                    {% for tag in snippet.tags.all %}
+                        <li class="snippet_tag"><a href="{% url snippets_tag tag.tag %}" class="tag_link">{{ tag.tag }}</a></li>
+                    {% endfor %}
+                </ul>
+                <p class="description">{{ snippet.description }}</a></p>
+                <p class="author"><span title="{{ snippet.created }}">{{ snippet.age }}</span> by <a href="{% url user_profile snippet.author.username %}" class="user">{{ snippet.author.username }}<a></p>
+            </li>
+        {% endfor %}
+
+        <!-- <li class="snippet">
+            <div id="rating">
+                <p>+1000</p>
+                <p>50</p>
+            </div>
+            <h2><a href="snippet.html">CS1.6 anty-cheat script</a></h2>
+            <ul class="snippet_tags">
+                <li class="snippet_tag"><a href="#" class="tag_link">CS 1.6</a></li>
+            </ul>
+            <p class="description">It's about enabling anty-cheat system on your CS server</p>
+            <p class="author"><span>week ago</span> by <a href="#" class="user">USER3<a></p>
+        </li>-->
+    </ul>
+{% endblock %}
+{% block footer %}
+    <div id="footer_navi">
+        {% if is_paginated %}
+            {% for page in pages %}
+            <a href="?page={{ page }}" class="navi_link">{{ page }}</a><span> | </span>
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock %}
+
+{% block right %}
+    <h3>{{ user_profile.username }}</h3>
+    <div>Real name: {% if user_profile.first_name != ''%}{{ user_profile.first_name }} {{user_profile.last_name}}{%else%}(unknown){%endif%}</div>
+    <div>Date joined: {{ user_profile.date_joined|date:"m.d.Y" }}</div>
+
+    <h4>Top {{ user_profile.username }}'s tag</h4>
+    <ul id="tags">
+        {% for tag in user_stat %}
+            <li class="tag">
+                <a href="{% url snippets_tag tag %}" class="tag_link">{{ tag }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

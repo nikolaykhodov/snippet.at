@@ -1,0 +1,16 @@
+
+#query_wrapper {
+    background: #ffffff;
+}
+#tabs .action a:before, #tabs .action a:after {
+    display: none;
+}
+
+#user_actions .left_outer:hover:before, #user_actions .right_outer:hover:after {
+    display: none;
+}
+
+
+#search span {
+    top: -7px;
+}

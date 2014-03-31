@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="description" content="<b>Snippet.At</b> helps you to easily find reusable code snippets on most routines you demand and organize your snippets." />
+        <meta name="keywords" content="c++, python, javascript, snippet, code snippet, java, c sharp, csharp, c#, c, snippets, social." />
+        <title>{% block page_title %}{% endblock %} - Snippet.At</title>
+
+        <link href="{{ STATIC_URL }}/css/style.css" rel="stylesheet" type="text/css" />
+        {% block css_files %}{% endblock %}
+
+		<link href="{{ STATIC_URL}}css/index.css" rel="stylesheet" type="text/css" />
+        <script type="text/javascript" href="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        {% block js_files %}{% endblock %}
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-33658216-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+        var STATIC_URL = "{{ STATIC_URL }}";
+        </script>
+	</head>
+	<body>
+		<div id="header">
+			<div id="header_container">
+				<a id="logo" href="/"><img src="{{ STATIC_URL}}img/logo.png" alt="логотип"></a>
+				<div id="header_actions">
+                    {% if not user.is_authenticated %}
+                        <a href="{% url registration_register %}" class="header_button" id="header_signup"><span>Signup</span></a>
+                        <a href="{% url auth_login %}?next={{ request.path }}" class="header_button" id="header_login"><span>Login</span></a>
+                    {% else %}
+                        <a href="{% url auth_logout %}" class="header_button" id="header_login"><span>Logout</span></a>
+                    {% endif %}
+                    <a href="{% url snippet_add %} " class="header_button" id="header_add"><span>Add</span></a>
+                    <form id="header_search" method="get" action="{% url snippets_search %}">
+                        <input id="query" name="query" value="{{ search_query }}">
+					</form>
+				</div>
+			</div>
+		</div>
+		<div id="container">
+			<div id="hHeader"></div>
+			<div id="space"></div>
+            <div id="right">
+                {% block right %}{% endblock %}
+            </div>
+            <div id="content">
+                {% if messages %}
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+                {% endif %}
+
+                {% block content %}{% endblock %}
+            </div>
+			<div id="hFooter"></div>
+		</div>
+		<div id="footer">
+            {% block footer %}{% endblock %}
+		</div>
+        <div style="display: none; position: absolute; top: -1000px;">
+            <form id="parameters">
+                {% csrf_token %}
+            </form>
+        </div>
+	</body>
+</html>

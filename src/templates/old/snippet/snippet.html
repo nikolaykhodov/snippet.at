@@ -1,0 +1,58 @@
+{% extends 'main.html' %}
+
+{% load markup %}
+{% load comments %}
+
+{% block page_title %}{{ snippet.title }}{% endblock %}
+
+{% block js_files %}
+    <script type="text/javascript" src="{{ STATIC_URL}}js/vote.js"></script>
+    <script type="text/javascript" src="{{ STATIC_URL }}js/fav.js"></script>
+{% endblock %}
+
+{% block css_files %}
+    <link href="{{ STATIC_URL}}css/snippet.css" rel="stylesheet" type="text/css" />
+    <link href="{{ STATIC_URL}}css/comment.css" rel="stylesheet" type="text/css" />
+{% endblock %}
+
+{% block content %}
+    <div id="snippet">
+        <div id="rating">
+            <p class="vote vote_up" snippet_id="{{ snippet.id }}">up</p>
+            <p id="score{{ snippet.id }}" style="font-weight: bold;">{{ snippet.score }}</p>
+            <p class="vote vote_down" snippet_id="{{ snippet.id }}">down</p>
+        </div>
+        <h1>{{ snippet.title }} <img id="fav{{ snippet.id}}" src="{{ STATIC_URL }}img/{% if not is_fav %}un{% endif %}bookmarked.png" class="favourite" snippet_id="{{ snippet.id }}"/></h1>
+        <ul class="snippet_tags">
+            {% for tag in snippet.tags.all %}
+                <li class="snippet_tag"><a href="{% url snippets_tag tag.tag %}" class="tag_link">{{ tag.tag }}</a></li>
+            {% endfor %}
+        </ul>
+
+        
+
+        <p class="description">{{ snippet.description }}</br>{% if user_is_author %}<a href="{% url snippet_edit snippet.id %}">(edit)</a>{% endif %}</p>
+        <div id="text" class="markdown">
+            {{ snippet.body|markdown:"safe" }} 
+        </div>
+        <p class="author"><span title="{{ snippet.created }}">{{ snippet.age }}</span> by <a href="/profile/{{ snippet.author.id }}/" class="user">{{ snippet.author.username }}<a></p>
+    </div>
+    <div id="comments">
+        <h2>{% get_comment_count for snippet as comments_count %} {{ comments_count }} comment(s)</h2>
+        {% render_comment_form for snippet %}
+        {% get_comment_list for snippet as comments %}
+        <br style="clear: both;"/>
+        <a name="comments"></a>
+        <ul>
+            {% for comment in comments %}
+                <li class="comment">
+                    <div id="rating">
+                        <p>{{ rating }}</p>
+                    </div>
+                    <p class="text">{{ comment.comment }}</a></p>
+                <p class="date">{{ comment.submit_date }} by <a href="{% url user_profile comment.user_name %}" class="user">{{ comment.user_name }}<a></p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

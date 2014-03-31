@@ -1,0 +1,55 @@
+#snippets {
+padding: 5px 10px;
+}
+.snippet {
+list-style: none outside none;
+margin-bottom: 10px;
+border-bottom: 1px solid rgb(204, 204, 204);
+box-shadow: 0pt 1px 0pt rgba(255, 255, 255, 0.65);
+}
+#rating {
+width: 50px;
+float: left;
+text-align: right;
+}
+#snippets h2 {
+margin-left: 60px;
+padding-top: 4px;
+}
+#snippets h2 a {
+color: #000;
+text-decoration: none;
+}
+.snippet_tags {
+clear: left;
+margin-left: 60px;
+list-style: none outside none;
+}
+.snippet_tag {
+margin: 3px 0px;
+padding: 2px 10px;
+text-align: center;
+border-radius: 5px;
+border: 1px solid rgb(204, 204, 204);
+background: none no-repeat scroll 10px center rgb(255, 255, 255);
+display: inline-block;
+text-decoration: none;
+}
+.snippet .description {
+margin-left: 60px;
+overflow: hidden;
+}
+.author {
+text-align: right;
+}
+.author  span {
+font-style: italic;
+}
+.user {
+color: rgb(100, 65, 165);
+text-decoration: none;
+}
+
+.vote {
+    cursor: pointer;
+}

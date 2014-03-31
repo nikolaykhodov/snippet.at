@@ -1,0 +1,24 @@
+.snippet_editor {
+    margin: 20px 0px 0px 40px;
+    width: 450px;
+}
+.snippet_editor label {
+    font-size: 1.2em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+    text-align: left;
+}
+.snippet_editor input[type="text"] {
+    width: 100%;
+    display: block;
+    height: 1.6em;
+    font-size: 1.2em;
+}
+
+.snippet_editor textarea {
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 100%;
+    min-height: 300px;
+}

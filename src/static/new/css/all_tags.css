@@ -1,0 +1,23 @@
+#all_tags {
+    width: 80%;
+    margin: 15px auto;
+}
+
+#all_tags th {
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+#all_tags td {
+    border-top: 1px solid #ccc;
+    padding: 10px 0px;
+}
+
+#all_tags td a.tag {
+    font-size: 1.3em;
+}
+
+#all_tags td {
+    text-align: center;
+}
